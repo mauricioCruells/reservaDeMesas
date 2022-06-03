@@ -17,7 +17,7 @@ class Table
         $this->reservation = new Reservation($name, $lastName, $email);
         $this->reserveTable();
         echo $this->showConfirmationMessage();
-    } 
+    }
 
     public function reserveTable() // changes status of table to reserved
     {
@@ -26,7 +26,7 @@ class Table
 
     public function showConfirmationMessage() // output to html page when reserved
     {
-        return "Reserva para mesa: " . $this->getTableID() . " completa!" 
+        return "Reserva para mesa: " . $this->getTableID() . " completa!";
     }
 
     public function getTableID()
