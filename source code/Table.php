@@ -1,4 +1,9 @@
 <?php
+/*
+    Class table handles Reservation object creation, modifing status of table when reserved and storing table ID.
+    
+    It's called from Event class when a reservation is requested from the html page.
+*/
 
 class Table
 {
@@ -8,7 +13,7 @@ class Table
 
     public function __construct(string $tableID)
     {
-        $this->isReserved = false; // tables is not reserved when created
+        $this->isReserved = false; // table is not reserved when created
         $this->tableID = $tableID;
     }
 
