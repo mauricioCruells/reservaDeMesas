@@ -1,6 +1,13 @@
 # reservaDeMesas
 Grupo 3 Full Stack Jr - Kodigo
 
+Integrantes:
+- Armando Melendez
+- Ileana Lainez
+- Jorge Lopez
+- Oscar Henriquez
+- Mauricio Castro
+
 Sistema para reservar mesas en eventos
 
 Un sistema que permita al usuario seleccionar el evento al que quiere asistir y que mesa en ese evento reservar.
