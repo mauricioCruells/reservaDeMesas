@@ -1,9 +1,20 @@
 <?php
 require 'Event.php';
 
-$mainEvent = new Event(20);
+$tableNumber = 5;
+$mainEvent = new Event($tableNumber);
 
+if (isset($_GET["submit"])) {
+    $name = $_GET["name"];
+    $lastName = $_GET["lastName"];
+    $email = $_GET["email"];
+    $tableIDToReserve = $_GET["tableSelected"];
+
+    $mainEvent->updateTable($tableIDToReserve, $name, $lastName, $email);
+}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,33 +33,36 @@ $mainEvent = new Event(20);
 
     <div class="main">
         <div class="userInfo">
-            <form action="./submitHandler.php">
+            <form action="./mainView.php" method="get">
                 <div>
-                    <label for="name"></label>
+                    <label for="name">Nombre: </label>
                     <input type="text" name="name" id="name">
                 </div>
 
                 <div>
-                    <label for="lastName"></label>
+                    <label for="lastName">Apellido: </label>
                     <input type="text" name="lastName" id="lastName">
                 </div>
 
                 <div>
-                    <label for="email"></label>
+                    <label for="email">Correo: </label>
                     <input type="text" name="email" id="email">
                 </div>
-
-                <div>
-                    <input type="submit" value="Reservar Mesa">
-                </div>
-
                 <div>
                     <select name="tableSelected" id="tableDropdown">
                         <?php $mainEvent->checkTablesAvailable() ?>
                     </select>
                 </div>
+
+                <div>
+                    <input type="submit" name="submit" value="Reservar Mesa">
+                </div>
+
             </form>
+
+
         </div>
+
 
 
     </div>

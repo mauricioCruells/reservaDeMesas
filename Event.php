@@ -13,8 +13,8 @@ class Event
     public function checkTablesAvailable()
     {
         foreach ($this->tables as $table) {
-            if (!$table->getIsReserved) {
-                echo '<option value=' . $table->getTableID . '>' . "Mesa " . $table->getTableID .  '</option>';
+            if (!$table->getIsReserved()) {
+                echo '<option value=' . $table->getTableID() . '>' . 'Mesa ' . strval($table->getTableID()) .  '</option>';
             }
         }
     }

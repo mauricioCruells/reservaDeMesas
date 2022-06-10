@@ -1,10 +1,4 @@
 <?php
-/*
-    Class table handles Reservation object creation, modifing status of table when reserved and storing table ID.
-    
-    It's called from Event class when a reservation is requested from the html page.
-*/
-
 require 'Reservation.php';
 
 class Table
