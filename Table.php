@@ -5,6 +5,8 @@
     It's called from Event class when a reservation is requested from the html page.
 */
 
+require 'Reservation.php';
+
 class Table
 {
     private $tableID;

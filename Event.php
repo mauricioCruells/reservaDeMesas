@@ -1,4 +1,5 @@
 <?php
+require 'Table.php';
 
 class Event
 {
@@ -13,7 +14,7 @@ class Event
     {
         foreach ($this->tables as $table) {
             if (!$table->getIsReserved) {
-                return true;
+                echo '<option value=' . $table->getTableID . '>' . "Mesa " . $table->getTableID .  '</option>';
             }
         }
     }
