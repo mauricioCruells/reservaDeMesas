@@ -11,7 +11,7 @@ class Table
     private $isReserved;
     private $reservation;
 
-    public function __construct(string $tableID)
+    public function __construct(int $tableID)
     {
         $this->isReserved = false; // table is not reserved when created
         $this->tableID = $tableID;
@@ -37,5 +37,10 @@ class Table
     public function getTableID()
     {
         return $this->tableID;
+    }
+
+    public function getIsReserved()
+    {
+        return $this->isReserved;
     }
 }
