@@ -4,10 +4,14 @@ require 'Table.php';
 class Event
 {
     private $tables = [];
+    private $eventName = "";
+    private $eventID;
 
-    public function __construct($numberOfTables)
+    public function __construct($numberOfTables, $eventName, $eventID)
     {
         $this->createTables($numberOfTables);
+        $this->eventName = $eventName;
+        $this->eventID = $eventID;
     }
 
     public function checkTablesAvailable()
@@ -29,5 +33,15 @@ class Event
         for ($i = 1; $i <= $numberOfTables; $i++) {
             $this->tables[$i] = new Table($i);
         }
+    }
+
+    public function getEventName()
+    {
+        return $this->eventName;
+    }
+
+    public function getEventID()
+    {
+        return $this->enventID;
     }
 }
