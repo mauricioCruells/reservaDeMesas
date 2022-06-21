@@ -1,6 +1,5 @@
 <?php
 
-
 class Router
 {
     private array $routes;
@@ -28,6 +27,6 @@ class Router
         $route = explode('?', $requestUri)[0];
         $action = $this->routes[$requestMethod][$route];
 
-        return call_user_func($action);
+        return call_user_func($action); //  ['CLASE', 'METODO']
     }
 }
