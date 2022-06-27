@@ -1,0 +1,29 @@
+version: "3.0"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: reservaDeMesas-app
+    restart: always
+    volumes:
+      - ../src:/var/www
+
+  nginx:
+    image: nginx:1.23.0
+    container_name: reservaDeMesas-nginx
+    ports:
+      - 8010:8010
+    volumes:
+      - ../src:/var/www
+      - ./nginx:/etc/ninx/conf.d
+  db:
+    image: mysql:8.0
+    container_name: reservaDeMesas-db
+    restart: always
+    ports:
+      - 3310:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ../src/storage/mysql:/var/lib/mysql
