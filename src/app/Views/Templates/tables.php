@@ -6,7 +6,7 @@ foreach ($tablesAvailable as $table) {
     $options = $options . '<option value=' . strval($table) . '>' . 'Mesa ' . strval($table) .  '</option>';
 }
 
-echo ('
+echo ('<form action="/reservation">
                 <div>
                     <label for="name">Nombre: </label>
                     <input type="text" name="name" id="name">
@@ -29,4 +29,5 @@ echo ('
                 <div>
                     <input type="submit" name="submit" value="Reservar Mesa">
                 </div>
+    </form>
 ');

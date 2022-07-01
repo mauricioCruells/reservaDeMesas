@@ -11,7 +11,7 @@
 <body>
     <header class='header'>
         <a href="/" id='eventos'>Eventos</a>
-        <a href="/user" id='login'>Login</a>
+        <a href="/login" id='login'>Login</a>
     </header>
     <main>
         <?= $main ?>

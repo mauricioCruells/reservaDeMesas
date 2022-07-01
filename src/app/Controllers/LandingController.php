@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+session_start();
 
 use App\Views\StaticView;
 use App\App;
