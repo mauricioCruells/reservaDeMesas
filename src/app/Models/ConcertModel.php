@@ -7,7 +7,7 @@ use \PDO;
 class ConcertModel extends Model
 {
 
-    public function __construct(/*we can pass other models here to acess their methods within this model, like a submodel*/)
+    public function __construct()
     {
         parent::__construct(); // to allow this class to access DB connection
     }
@@ -20,5 +20,14 @@ class ConcertModel extends Model
         $availableConcerts = $this->db->query($query)->fetchAll(PDO::FETCH_COLUMN, 0);
 
         return $availableConcerts;
+    }
+
+    public function getConcertIDFromURI(string $uri)
+    {
+        $parsedURI = 'Concierto ' . substr($uri, -1);
+
+        $query = 'SELECT concertID FROM concerts WHERE eventName = ' . "'" . $parsedURI . "'";
+
+        return $this->db->query($query)->fetchAll(PDO::FETCH_COLUMN, 0);
     }
 }

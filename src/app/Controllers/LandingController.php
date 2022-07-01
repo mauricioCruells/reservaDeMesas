@@ -17,7 +17,7 @@ class LandingController implements Controller
 
         return StaticView::make(
             "generalLayout",
-            ["events" => StaticView::make("events", ["concertsAvailable" => $concertsAvailable])]
+            ["main" => StaticView::make("events", ["concertsAvailable" => $concertsAvailable])]
         );
     }
 }

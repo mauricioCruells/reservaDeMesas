@@ -8,6 +8,7 @@ use App\Router;
 use Dotenv\Dotenv;
 use App\Controllers\{
     LandingController,
+    TableSelectionController,
 };
 
 $dotenv = Dotenv::createImmutable(dirname(__DIR__));
@@ -18,7 +19,11 @@ define('VIEW_PATH', __DIR__ . '/../app/Views/Templates');
 $router = new Router();
 
 $router
-    ->get('/', [LandingController::class, 'processRequest']);
+    ->get('/', [LandingController::class, 'processRequest'])
+    ->get('/concert1', [TableSelectionController::class, 'processRequest'])
+    ->get('/concert2', [TableSelectionController::class, 'processRequest'])
+    ->get('/concert3', [TableSelectionController::class, 'processRequest'])
+    ->get('/concert4', [TableSelectionController::class, 'processRequest']);
 
 $appRunner = new App(
     $router,

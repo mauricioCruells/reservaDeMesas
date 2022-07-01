@@ -14,7 +14,7 @@
         <a href="/user" id='login'>Login</a>
     </header>
     <main>
-        <?= $events ?>
+        <?= $main ?>
     </main>
 </body>
 
