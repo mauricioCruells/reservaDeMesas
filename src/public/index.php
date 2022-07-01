@@ -7,18 +7,23 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use App\Router;
 use Dotenv\Dotenv;
 use App\Controllers\{
-    TestController,
+    LandingController,
 };
 
 $dotenv = Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
-define('VIEW_PATH', __DIR__ . '/../views');
+define('VIEW_PATH', __DIR__ . '/../app/Views/Templates');
 
 $router = new Router();
 
 $router
-    ->get('/', [TestController::class, 'processRequest']);
+    ->get('/', [LandingController::class, 'processRequest']);
 
+$appRunner = new App(
+    $router,
+    ['uri' => $_SERVER['REQUEST_URI'], 'method' => $_SERVER['REQUEST_METHOD']],
+    new Config($_ENV)
+);
 
-echo $router->resolve($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
+$appRunner->run();

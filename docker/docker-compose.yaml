@@ -13,6 +13,7 @@ services:
   nginx:
     image: nginx:1.19-alpine
     container_name: reservaDeMesas-nginx
+    restart: always
     ports:
       - "8000:80"
     volumes:

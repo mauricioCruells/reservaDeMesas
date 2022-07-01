@@ -26,7 +26,7 @@ class Router
     }
 
 
-    public function resolve(string $requestMethod, string $requestUri, array $params = [])
+    public function resolve(string $requestUri, string $requestMethod, array $params = [])
     {
         $route = explode('?', $requestUri)[0];
         $action = $this->routes[$requestMethod][$route] ?? null;
@@ -43,7 +43,8 @@ class Router
                 $class = new $class();
 
                 if (method_exists($class, $method)) {
-                    return call_user_func_array([$class, $method], $params); //  ['CLASE', 'METODO']
+                    return call_user_func_array([$class, $method], $params);
+                    //               [['CLASS', 'METHOD'], ['METHOD, PARAMETERS, IN, ORDER']]
                 }
             }
         }
